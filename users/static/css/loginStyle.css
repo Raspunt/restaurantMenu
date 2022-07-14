@@ -1,0 +1,65 @@
+
+
+.main_component{
+    margin-right: 300px;
+    margin-left: 300px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+
+body,html {
+    margin: 0;
+    padding: 0;
+    
+    background-color: rgb(90, 34, 34) !important;
+}
+
+
+.form_div{
+    margin-top: 100px;
+    background-color: rgb(143, 105, 40);
+    width: 500px;
+    padding: 20px;
+    border-radius: 1rem;
+}
+
+.center_text_h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.form_style {
+    display: flex;
+    flex-direction: column;
+}
+
+.form_style input {
+    width: 80%;
+}
+
+.button_submit{
+    background-color: greenyellow;
+    border-radius: 15rem;
+    border: none;
+
+    margin: 15px;
+    padding: 10px;
+    transition: 0.5s;
+}
+
+.button_submit:hover{
+    background-color: green;
+    color: white;
+}
+
+
+#danger_message{
+    display: none;
+}

@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MainPage</title>
+    {% load static %}
+
+    {% include 'restoran/components/links.html' %}
+  
+</head>
+<body>
+    
+    {% include 'restoran/components/header.html' %}
+
+    <div class="main_container">
+        
+
+        <h1 class="center_text_container">{{ category.title }}</h1>
+
+        <div class="content_grid">
+
+            {% for cat in products %}
+            <div class="grid_item grid_item_link">
+                <img class="grid_image" src="{{ cat.image.url }}" alt="">    
+                <p>{{ cat.title }}</p>
+                <p>{{ cat.price }} {{ cat.price_valuta }}</p>
+            </div>    
+            {% endfor %}    
+            
+            
+            <a class="grid_item_link_plus" href="/ProductCreate/">
+                <div class="grid_item_div_plus">
+                    <i class="fa-solid fa-plus fa-2xl"></i>
+                </div>
+            </a>
+
+            
+        </div>
+    </div>
+
+
+
+
+
+    <script>        
+        var id = window.location.pathname.split('/')[2]
+
+        console.log(id)
+        localStorage.setItem('CategoryId', id);
+        localStorage.setItem('CategoryName', "{{ category.title }}");
+
+
+    </script>
+
+
+</body>
+</html>

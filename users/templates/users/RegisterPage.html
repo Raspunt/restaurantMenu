@@ -1,0 +1,111 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    {% load static %}
+    
+    {% include 'users/links.html' %}
+
+</head>
+<body>
+    
+    <div class="main_component">
+    
+      <div class="form_div">
+        <h1 class="">Создать пользователя</h1>
+        <div id="danger_message" class="p-3 mb-2 bg-danger text-white">пороли не совпадают</div>
+
+      
+          <div class="form_style">
+            <label for="username_input">Username</label>
+            <input type="text" class="InputForm" id='username_input' >
+          </div>
+          
+          <div class="form_style">
+            <label for="email_input">Email</label>
+            <input type="text" class="InputForm" id="email_input"  >
+          </div>
+          
+          <div class="form_style">
+            <label  for="password_input">Password</label>
+            <input  type="password" class="InputForm" id='password_input' >
+          </div>
+          
+          <div class="form_style">
+            <label   for="conf_password_input">Confirm password</label>
+            <input  type="password" class="InputForm" id="conf_password_input" >
+          </div>
+          
+          
+          <button onclick="CreateUser()" class="button_submit">Зарегистрироваться</button>
+          
+        </div>
+      </div>
+
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js" integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+      <script>
+
+          function CreateUser(){
+
+            let username_input = document.getElementById('username_input');
+            let email_input = document.getElementById('email_input');
+            let password_input = document.getElementById('password_input');
+            let conf_password_input = document.getElementById('conf_password_input');
+
+            axios.defaults.xsrfCookieName = 'csrftoken'
+            axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
+
+            if (password_input.value === conf_password_input.value 
+                    && password_input.value != ""
+                    && conf_password_input.value != ""){
+              console.log("Пароли совпадают");
+
+              let form_data = new FormData();
+              form_data.append('username',username_input.value)
+              form_data.append('email',email_input.value)
+              form_data.append('password',password_input.value)
+
+
+              axios.post('{% url "RegisterUrl" %}',form_data)
+
+              .then(function (response) {
+                
+                isUserExist = response.data.charAt(0);
+
+                if (isUserExist === "1"){
+                  window.location.href = '{% url "LoginUrl" %}'
+                }
+
+
+              
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
+
+            }else {
+              let danger_message = document.getElementById('danger_message');      
+              danger_message.style.display="block"
+            }
+            
+            
+
+
+
+            
+
+
+          }
+
+
+      </script>
+
+</body>
+</html>

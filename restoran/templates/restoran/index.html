@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MainPage</title>
+    {% load static %}
+
+    {% include 'restoran/components/links.html' %}
+  
+</head>
+<body>
+    
+    {% include 'restoran/components/header.html' %}
+
+    <div class="main_container">
+        
+
+
+        <div class="content_grid">
+
+            {% for cat in category %}
+            <a class="grid_item_link" href="/Category/{{cat.id}}">
+                <div class="grid_item">
+                    <img class="grid_image" src="{{ cat.image.url }}" alt="">    
+                    <p>{{ cat.title }}</p>
+                </div>
+            </a>
+            {% endfor %}            
+
+            <a class="grid_item_link_plus" href="/CategoryCreate/">
+                <div class="grid_item_div_plus">
+                    <i class="fa-solid fa-plus fa-2xl"></i>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+
+
+
+
+</body>
+</html>

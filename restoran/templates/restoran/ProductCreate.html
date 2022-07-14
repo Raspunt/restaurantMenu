@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CategoryCreate</title>
+
+    {% load static %}
+ 
+    {% include 'restoran/components/links.html' %}
+
+</head>
+<body>
+
+    {% include 'restoran/components/header.html' %}
+    
+    <div class="main_container">
+        
+        <h1 id="center_text" class="center_text_container"></h1>
+        
+        <div class="form_container">
+
+            <div class="form-group">
+                <label for="inputText text-white">Название Продукта</label>
+                <input type="text" class="form-control" id="inputText" aria-describedby="emailHelp" placeholder="Название продукта">
+            </div>
+            
+            <div class="form-group">
+                <label for="InputFile">Картинка Продукта</label>
+                <input type="file" class="form-control-file" id="InputFile">
+            </div>
+
+            <div class="form-group">
+                <label for="InputNumber">Цена Продукта</label>
+                <input type="number" class="form-control" id="InputNumber">
+            </div>
+
+            <div class="form-group">
+                <label for="InputValuta">Валюта Продукта</label>
+                <input type="text" class="form-control" id="InputValuta">
+            </div>
+
+            {% csrf_token %}
+
+
+            <button  onclick="CreateProduct()" type="button" class="btn btn-success ">Создать</button>
+            
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js" integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{% static 'js/Sender.js' %}"></script>
+
+    <script>
+
+
+        let center_text = document.getElementById('center_text') ;
+        center_text.innerHTML = ` ${localStorage.getItem('CategoryName')}`
+
+    </script>
+
+</body>
+</html>
