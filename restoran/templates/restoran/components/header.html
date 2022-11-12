@@ -1,14 +1,25 @@
 
-
+{% load static %}
 
 <div class="header">
-
-    <h1>Rest & eat</h1>
-
-    <div class="left_side_login">
-
-        <a class="header_login" href="{% url 'LoginUrl'  %}">login</a>
-        <a class="header_login"  href="{% url 'RegisterUrl'  %}">Register</a>
         
+    <div class="logo_place">
+        <img src="{% static 'images/logo.png' %}" alt="">
     </div>
-</div>
+    
+    <div class="left_text_header">
+        
+
+        <div>
+            <a class="header_login" href="{% url 'MainPageUrl' %}">Главная</a>
+            <a class="header_login" href="{% url 'WellcomePageUrl' %}">Меню</a>
+        </div>
+    
+    
+        <div class="loginRegister">
+            <a class="header_login" href="{% url 'LoginUrl'  %}">login</a>
+            <a class="header_login"  href="{% url 'RegisterUrl'  %}">Register</a>
+        </div>
+    
+    </div>
+    </div>

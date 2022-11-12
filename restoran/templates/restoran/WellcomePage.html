@@ -1,0 +1,36 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellcome to restoran</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/WellcomePage.css' %}">
+
+</head>
+<body>
+
+
+    <div class="main_container">
+
+        {% include 'restoran/components/header.html' %}
+
+    
+        <div class="wellcome_image">
+    
+            <div class="wellcome_text">
+                <h3>Добро пожаловать в</h3>
+                <h1>Наш ресторан</h1>
+            </div>
+    
+        </div>
+        
+      </div>
+    
+    
+</body>
+</html>

@@ -10,6 +10,10 @@ def MainPage(request):
         'category':category
     })
 
+def WellcomePage(request):
+    return render(request,'restoran/WellcomePage.html')
+
+
 
 def CategoryDetail(request,category_id):
 

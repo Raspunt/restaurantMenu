@@ -7,13 +7,15 @@
     background-color: rgb(143, 105, 40);
     height: 100%;
 
+    border-radius:1rem;
+
 }
 
 body,html{
     margin: 0;
     padding: 0;
     height: 100%;
-    background-color: rgb(90, 34, 34) !important;
+    background-color: rgb(75, 34, 11) !important;
 }
 
 
@@ -31,6 +33,7 @@ body,html{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    border-radius:15rem;
 }
 
 
